@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+:root {
+    --el-color-primary: #4e46e5 !important;
+    --el-color-primary-light-3: #837dec !important;
+    --el-color-primary-dark-2: #3e38b7 !important;
+}
+
+input:focus {
+    outline: none!important;
+    box-shadow: none!important;
+}
+
+.el-dropdown > *:focus-visible {
+    outline: none!important;
+}
+
+.clickable .el-table__row {
+    cursor: pointer;
+}
