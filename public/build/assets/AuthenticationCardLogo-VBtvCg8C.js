@@ -1,0 +1,1 @@
+import{_ as a}from"./img-DNTK9n0h.js";import{o,c as t,w as e,u as s,j as r,a as _}from"./app-CeeTN1tz.js";const c=_("img",{class:"w-44 h-auto",alt:"Logo",src:a},null,-1),l={__name:"AuthenticationCardLogo",setup(n){return(i,u)=>(o(),t(s(r),{href:"/"},{default:e(()=>[c]),_:1}))}};export{l as _};
