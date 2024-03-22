@@ -23,7 +23,8 @@ class TaskResource extends JsonResource
             'due_date' => $this->due_date,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'notes' => $this->notes
+            'notes' => $this->notes,
+            'media' => TaskMediaResource::collection($this->media),
         ];
     }
 }

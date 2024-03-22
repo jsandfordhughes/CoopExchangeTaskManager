@@ -13,6 +13,7 @@
         "laravel/octane": "^2.3",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "spatie/laravel-medialibrary": "^11.0.0",
         "spatie/laravel-ray": "^1.35",
         "spiral/roadrunner-cli": "^2.6.0",
         "spiral/roadrunner-http": "^3.3.0",

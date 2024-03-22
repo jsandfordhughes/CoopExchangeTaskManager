@@ -159,6 +159,6 @@ return [
     'redirects' => [
         'logout' => '/login',
         'login' => '/tasks',
-    ]
+    ],
 
 ];

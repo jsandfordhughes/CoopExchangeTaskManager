@@ -1,29 +1,29 @@
-import {dayjs} from "element-plus";
+import { dayjs } from "element-plus";
 
 export function getStatusType(status) {
     switch (status) {
         case "in_progress":
-            return 'primary';
+            return "primary";
         case "completed":
-            return 'success';
+            return "success";
         case "cancelled":
-            return 'danger';
+            return "danger";
         default:
-            return 'info';
+            return "info";
     }
 }
 
 export function getPriorityType(priority) {
     switch (priority) {
         case "medium":
-            return 'warning';
+            return "warning";
         case "high":
-            return 'danger';
+            return "danger";
         default:
-            return 'info';
+            return "info";
     }
 }
 
 export function formatDate(date) {
-    return dayjs(date).format('DD-MM-YYYY');
+    return dayjs(date).format("DD-MM-YYYY");
 }

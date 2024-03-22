@@ -6,15 +6,13 @@ use App\Enums\TaskPriority;
 use App\Enums\TaskStatus;
 use App\Events\TaskCreated;
 use App\Http\Requests\TaskRequest;
+use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
-use App\Http\Resources\TaskResource;
 
 class TaskController extends Controller
 {
-
     public function index(): \Inertia\Response
     {
         return Inertia::render('Tasks', [
@@ -23,7 +21,6 @@ class TaskController extends Controller
             'allowedPriorities' => TaskPriority::labels(),
         ]);
     }
-
 
     public function store(TaskRequest $request)
     {
@@ -35,7 +32,6 @@ class TaskController extends Controller
         return redirect_to(route('tasks.index', ['newTaskId' => $task]), 'Task created successfully');
     }
 
-
     public function update(TaskRequest $request, Task $task)
     {
         abort_if($request->user()->cannot('update', $task), 401);
@@ -44,7 +40,6 @@ class TaskController extends Controller
 
         return redirect_back('Task updated successfully');
     }
-
 
     public function destroy(Request $request, Task $task)
     {

@@ -2,7 +2,9 @@
     <el-dialog v-model="dialogVisible" width="50%">
         <div class="p-4 pt-0">
             <div class="flex items-center">
-                <div class="bold text-2xl text-black">title{{ task.title }}</div>
+                <div class="bold text-2xl text-black">
+                    title{{ task.title }}
+                </div>
                 <el-tag :type="getStatusType(task.status)" class="ml-4">
                     {{ allowedStatuses[task.status] }}
                 </el-tag>
@@ -12,42 +14,58 @@
                 <el-tag :type="getPriorityType(task.priority)">
                     {{ allowedPriorities[task.priority] }}
                 </el-tag>
-                <el-tag class="ml-3">Due: {{formatDate(task.due_date)}}</el-tag>
+                <el-tag class="ml-3"
+                    >Due: {{ formatDate(task.due_date) }}
+                </el-tag>
             </div>
 
             <div class="flex">
-                <el-link class="ml-auto !text-accent" @click="editTask">Edit Task</el-link>
+                <el-link class="ml-auto !text-accent" @click="editTask"
+                    >Edit Task
+                </el-link>
             </div>
 
-            <hr class="my-6"/>
+            <hr class="my-6" />
             <div class="whitespace-pre-line">
                 {{ task.description }}
             </div>
 
-            <hr class="my-6"/>
+            <hr class="my-6" />
 
-            <task-notes :task />
+            <el-tabs>
+                <el-tab-pane label="Notes">
+                    <TaskNotes :task />
+                </el-tab-pane>
+                <el-tab-pane label="Attachments">
+                    <TaskAttachments :task />
+                </el-tab-pane>
+            </el-tabs>
         </div>
     </el-dialog>
 </template>
 
 <script setup>
-import {reactive, ref} from "vue";
-import {formatDate, getPriorityType, getStatusType} from "@/Composables/TaskHelpers.js";
+import { ref } from "vue";
+import {
+    formatDate,
+    getPriorityType,
+    getStatusType,
+} from "@/Composables/TaskHelpers.js";
 import TaskNotes from "@/Components/TaskNotes.vue";
+import TaskAttachments from "@/Components/TaskAttachments.vue";
 
 const dialogVisible = ref(false);
 
 defineProps({
     allowedStatuses: Object,
     allowedPriorities: Object,
-})
+});
 
-const task = defineModel({type: Object})
+const task = defineModel({ type: Object });
 
-const emit = defineEmits(['editTask'])
+const emit = defineEmits(["editTask"]);
 
-defineExpose({openModal})
+defineExpose({ openModal });
 
 function openModal() {
     dialogVisible.value = true;
@@ -55,10 +73,8 @@ function openModal() {
 
 function editTask() {
     dialogVisible.value = false;
-    emit('editTask', task.value);
+    emit("editTask", task.value);
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

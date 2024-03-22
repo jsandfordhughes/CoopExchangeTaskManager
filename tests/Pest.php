@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+
 use function Pest\Laravel\actingAs;
 
 /*
@@ -18,7 +19,7 @@ use function Pest\Laravel\actingAs;
 
 uses(TestCase::class, RefreshDatabase::class)->in('Feature', 'Unit');
 
-function login(User $user = null): User
+function login(?User $user = null): User
 {
     $user = $user ?: User::factory()->create();
     $user ? actingAs($user) : actingAs(User::factory()->create());
