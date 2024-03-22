@@ -13,10 +13,10 @@ use Inertia\Inertia;
 
 class TaskController extends Controller
 {
-    public function index(): \Inertia\Response
+    public function index(Request $request): \Inertia\Response
     {
         return Inertia::render('Tasks', [
-            'tasks' => TaskResource::collection(Task::all()),
+            'tasks' => TaskResource::collection($request->user()->tasks),
             'allowedStatuses' => TaskStatus::labels(),
             'allowedPriorities' => TaskPriority::labels(),
         ]);

@@ -10,10 +10,11 @@ use Inertia\Testing\AssertableInertia as Assert;
 |--------------------------------------------------------------------------
 */
 
-it('shows the task list', function () {
-    login();
+it('shows the task list for the user only', function () {
+    $user = login();
 
     Task::factory()->count(5)->create();
+    Task::factory()->count(5)->create(['user_id' => $user->id]);
 
     $response = $this->get(route('tasks.index'));
 
