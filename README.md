@@ -12,7 +12,7 @@ The application also includes updating of profile information, password, 2 facto
 
 For the attachments feature I have implemented a package from Spatie called [Laravel Media Library](https://spatie.be/docs/laravel-medialibrary/v11/introduction). This package allows you to easily store media against a model and store it in the database.
 
-The below documentation will allow you to run the application locally however I have also hosted the application on AWS using Octane on the backend for fast resonse times. 
+The below documentation will allow you to run the application locally however I have also hosted the application on AWS using Octane on the backend for fast response times. 
 You can view the application here: https://coop-exchange-task-manager.jj-software.co.uk/login
 
 If you would like to register this can be done here: https://coop-exchange-task-manager.jj-software.co.uk/register or alternatively a test user is setup with seed data, you can login using the following credentials:
